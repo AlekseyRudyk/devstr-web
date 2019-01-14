@@ -22,8 +22,8 @@ install:
   - npm install
 
 script:
-  - npm run ci:travis
-
+  - npm run e2e
+  - ng build -bh "https://devstr-web-app.herokuapp.com"
 deploy:
   provider: pages
   skip_cleanup: true
