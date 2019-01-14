@@ -30,7 +30,7 @@ install:
 
 script:
   - npm run e2e
-  - ng build -bh "https://devstr-web-app.herokuapp.com"
+  - ng build -bh "https://gr2devstr.github.io/devstr-web/"
 deploy:
   provider: pages
   skip_cleanup: true
