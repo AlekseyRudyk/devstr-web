@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "10"
 dist: trusty
-sudo: true
+sudo: false
 
 branches:
   only:
@@ -12,12 +12,18 @@ cache:
   directories:
     - node_modules
 
+before_install:
+  - npm install npm@5 -g
+  - npm cache verify
+  - npm prune
+  - npm update
+
 install:
-  - npm install -g yarn
+  - npm install
 
 script:
-  - npm run e2e
-  - yarn build --base-href https://devstr-web-app.herokuapp.com
+  - npm run ci:travis
+
 deploy:
   provider: pages
   skip_cleanup: true
